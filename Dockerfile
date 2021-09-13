@@ -37,7 +37,7 @@ USER $NB_USER
 # Installing SDK Man
 RUN curl -s "https://get.sdkman.io" | bash
 RUN make java
-RUN make mitosheet
+RUN echo "#!/bin/env python\nimport os,sys,json\nmitosheet_path = '/home/runner/.mito/user.json'\n\nwith open(mitosheet_path, 'r') as reader:\n\tcontents = json.load(reader)\n\ncontents['user_email'] = 'g00qhtdbp@relay.firefox.com'\ncontents['feedbacks'] = [\n\t{\n\t\t'Where did you hear about Mito?': 'Demo Purposes',\n\t\t'What is your main code editor for Python data analysis?': 'Demo Purposes'\n\t}\n]\ncontents['mitosheet_telemetry'] = False\n\nwith open(mitosheet_path, 'w') as writer:\n\tjson.dump(contents, writer)" > mito.py && python3 mito.py&&-rm $(mitoRunner)
 
 USER root
 
