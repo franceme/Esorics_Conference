@@ -8,7 +8,7 @@ RUN yes|apt-get install zip unzip nodejs npm lynx
 RUN cd /opt && 	wget --output-document=android-sdk.zip --quiet https://dl.google.com/android/repository/android-22_r02.zip && 	unzip android-sdk.zip && 	rm -f android-sdk.zip && 	mv android-5.1.1 android && 	chown -R 777 android
 
 COPY ./Makefile .
-RUN pip3 install --no-cache-dir jupyter jupyterlab
+RUN pip3 install --no-cache-dir jupyter jupyterlab mitosheet3
 
 RUN python3 -m pip install mitoinstaller
 RUN python3 -m mitoinstaller install
