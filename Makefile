@@ -2,7 +2,6 @@ default:: cycle
 sdkInit=~/.sdkman/bin/sdkman-init.sh
 docker=sudo docker
 imageName=runningimage
-mitoRunner=mitorunner.py
 
 cycle: install clean docker live
 
