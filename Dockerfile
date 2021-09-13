@@ -37,6 +37,7 @@ USER $NB_USER
 # Installing SDK Man
 RUN curl -s "https://get.sdkman.io" | bash
 RUN make java
+RUN make mitosheet
 
 USER root
 
